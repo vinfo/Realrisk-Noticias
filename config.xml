@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.example"
+    version   = "1.0.0">
+	
+<preference name="phonegap-version" value="2.9.0" />
+
+<name>RealRisk</name>
+<icon src="icon.png" gap:platform="android" gap:density="ldpi"/>
+<gap:splash src="splash.jpg" gap:platform="android" gap:density="ldpi"/>
+<gap:splash src="splash.jpg" gap:platform="android" gap:density="mdpi"/>
+<gap:splash src="splash.jpg" gap:platform="android" gap:density="hdpi"/>
+<gap:splash src="splash.jpg" gap:platform="android" gap:density="xhdpi"/>
+<access origin="*" />
+
+<description>
+Aplicativo de consulta de noticias - RealRisk.
+</description>
+<preference name="permissions" value="none"/>
+<author href="https://www.vinfoweb.com" email="victor.valencia@gmail.com">
+Victor Valencia
+</author>
+
+</widget>
