@@ -1,68 +1,66 @@
-<!DOCTYPE html> 
-<html>
-<head>
-<meta charset="utf-8">
-<title>Real Risk</title>
-<link href="jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
-<link href="jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
-<script src="jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
-<script src="jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
-<style>
-    body{font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;background-color: #efefef;font-size: 13px;line-height: 17px !important;}
-    .rssDiv{float: left;padding-right: 35px;}
-    ul{width: 300px !important;}
-</style>
-</head> 
-<body> 
-
-<div data-role="page" id="inicio">
- 
-<div data-role="header">
-<h1>Autenticacion de Usuario</h1>
-</div>
-<div data-role="content">
-<form id="formulario" >
-<label> Usuario </label>
-<input type="text" id="user" name="user" placeholder="Usuario">
-<input type="submit" value="Login" id="botonLogin">
-</form>	
-</div>
-</div>
-<div data-role="page" id="home">
- 
-<div data-role="header">
-<h1>Bienvenido</h1>
-</div> 
-<div data-role="content">	
-<h2 id="titleRss"></h2>
-<div id="divRss"></div>
-</div>
- 
-</div>
-<script type="text/javascript" src="http://momentjs.com/downloads/moment-with-langs.min.js"></script>
-<script type="text/javascript" src="plugins/FeedEk/js/FeedEk.js"></script>
-<script>
-$(document).ready(function () {
-	loadRss('http://realriskap.com/cafe/feed/');
-});	
-$('#formulario').submit(function() {
-var datosUsuario = $("#user").val();
-if(datosUsuario!=""){
-	$.mobile.changePage("#home");		
-}else{
-/// ejecutar una conducta cuando la validacion falla
-}
-return false;
-})
-function loadRss(url){
-	$('#divRss').FeedEk({
-		FeedUrl: url,
-		MaxCount: 10,
-		ShowDesc: true,
-		DescCharacterLimit: 100
-	});	
-}
-</script>
-
+<!doctype html>
+<html lang="es">
+		<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<title>Realrisk - Lector RSS</title>
+		<meta name="description" contend="Aplicacion Realrisk" />
+		<meta name="keywords" contend="app, realrisk, Medellin, Colombia" />
+		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+         <script type="text/javascript" charset="utf-8" src="js/Toast.js"></script>
+		<script>
+			$( document ).ready(function() {
+				redir();
+				$("#submit").click(function(e) {
+					e.preventDefault();
+					var email=$("#email").val();
+					email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+					if(email_regex.test(email)){										
+					var postStr='action=login&email='+email;
+					$.ajax({ 
+						dataType: 'jsonp',
+						jsonp: 'callback', 
+						type: "POST",
+						crossDomain: true,
+						data: postStr,
+						url: "http://realrisk.co/mobile/ajax_services.php",			
+						success: function(msg){
+							if(msg){								
+								var data=JSON.stringify(msg);
+								var obj= jQuery.parseJSON(data);
+								window.localStorage.setItem("id_u", obj.id_u);
+								window.localStorage.setItem("names_u", obj.names_u);
+								redir();
+							}else{
+								save("Correo no registrado!");
+							}
+						}
+						});				
+					} 
+				});						
+			});
+			function redir(){				
+				//localStorage.removeItem("realrisk");				 
+				if(window.localStorage.getItem("id_u")!=null){					
+					window.location = "list.html";
+				}
+			}
+		</script>
+		</head>
+		<body class="vertical">
+        <section class="conte_ingreso">
+          <figure class="realrisk"> <img src="image/logo.png"> </figure>
+          <article class="ingreso">
+            <h3 class="titulo_ingresar">Ingrese su correo electrÃ³nico </h3>
+            <form name="frmLogin" action="#" autocomplete="on" class="relative">
+              <span class="icon-search"> <img src="image/icon_mail.jpg"> </span>
+              <input id="email" name="email" type="email" placeholder="email@example.com" class="mail">
+              <input type="button" name="submit" class="butingresar" value="Ingresar" id="submit" />
+            </form>
+          </article>
+        </section>
 </body>
 </html>
