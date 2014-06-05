@@ -10,3 +10,7 @@ function GetURLParameter(sParam){
         }
     }	
 }
+function onBackKeyDown() {
+    history.go(-1);
+    navigator.app.backHistory();
+}

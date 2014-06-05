@@ -529,5 +529,8 @@ header {
 	-ms-transition: opacity 0.5s ease-out;  /* IE10? */
 	-o-transition: opacity 0.5s ease-out;  /* Opera 10.5+ */
 	transition: opacity 0.5s ease-out;	
-	
+}
+.feedEkList{
+	padding:0;
+	margin:0;
 }

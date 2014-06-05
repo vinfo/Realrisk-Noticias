@@ -14,9 +14,10 @@
 <script>
 $( document ).ready(function() {
 	var name_r = decodeURIComponent(GetURLParameter('name_r'));
-	var rss_r = decodeURIComponent(GetURLParameter('rss_r'));	
+	var rss_r = decodeURIComponent(GetURLParameter('rss_r'));
+	$("#name_r").html(name_r);
 	$( document ).on( "click", "a.atras", function() {
-		window.history.back();
+		onBackKeyDown();
 	});	
 });
 </script>
@@ -30,7 +31,7 @@ $( document ).ready(function() {
     <article class="detarticulo">
       <div class="titulo_det_articulo">
         <figure class="icono_tit icon-icono_articulo3"> </figure>
-        <h2 class="det_titulo"> Titulo articulo en detalle detalle </h2>
+        <h2 class="det_titulo"><span id="name_r">&nbsp;</span></h2>
       </div>
       <p class="parrafo">&nbsp;</p>
     </article>
