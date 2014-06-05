@@ -16,15 +16,14 @@
 <script>
 $( document ).ready(function() {
 	var id_u= window.localStorage.getItem("id_u");
-	var names_u= window.localStorage.getItem("names_u");	
+	var names_u= window.localStorage.getItem("names_u");
+	window.localStorage.setItem("name_r",GetURLParameter('name_r'));	
+	window.localStorage.setItem("rss_r",GetURLParameter('rss_r'));	
 	$("#names_u").html(names_u);
 	var name_r = decodeURIComponent(GetURLParameter('name_r'));
 	var rss_r = decodeURIComponent(GetURLParameter('rss_r'));
 	$("#name_r").html(name_r);
 	loadRss(rss_r);
-	$( document ).on( "click", "a.atras", function() {
-		onBackKeyDown();
-	});	
 });
 function loadRss(url){
   $('#divRss').FeedEk({
@@ -41,7 +40,7 @@ function loadRss(url){
   <figure id="logotipo"> <img src="image/logo.png" width="125" height="30" alt="Realrisk"> </figure>
 </header>
 <section class="container">
-<a href="#" class="atras icon-arrow-left"><span class="titulo_atras">Atrás</span></a>
+<a href="list.html" class="atras icon-arrow-left"><span class="titulo_atras">Atrás</span></a>
     <article class="categoria">
       <h2 class="title_categoria"><span id="name_r"></span></h2>
     </article>

@@ -15,9 +15,10 @@
 $( document ).ready(function() {
 	var name_r = decodeURIComponent(GetURLParameter('name_r'));
 	var rss_r = decodeURIComponent(GetURLParameter('rss_r'));
+	var url="rss.html?name_r="+window.localStorage.getItem("name_r")+"&rss_r="+window.localStorage.getItem("rss_r");
 	$("#name_r").html(name_r);
 	$( document ).on( "click", "a.atras", function() {
-		onBackKeyDown();
+		$(location).attr('href',url);
 	});	
 });
 </script>

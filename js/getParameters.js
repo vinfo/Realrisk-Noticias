@@ -10,17 +10,3 @@ function GetURLParameter(sParam){
         }
     }	
 }
-function onBackKeyDown() {
-    alert(typeof (navigator.app));
-	
-	if (typeof (navigator.app) !== "undefined") {
-        alert(1);
-		navigator.app.backHistory();
-		parent.history.back();	
-    } else {
-        alert(2);
-		window.history.back();
-		parent.history.back();
-    }	        
-    return false;
-}
