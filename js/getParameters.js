@@ -15,10 +15,12 @@ function onBackKeyDown() {
 	
 	if (typeof (navigator.app) !== "undefined") {
         alert(1);
-		navigator.app.backHistory();		
+		navigator.app.backHistory();
+		parent.history.back();	
     } else {
         alert(2);
 		window.history.back();
+		parent.history.back();
     }	        
     return false;
 }
