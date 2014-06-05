@@ -9,14 +9,19 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-$( document ).ready(function() {
-	var id_u= window.localStorage.getItem("id_u");
-	var names_u= window.localStorage.getItem("names_u");	
-	$("#names_u").html(names_u);
-	getRSS(id_u);
-});
+if (! window.jQuery) {
+	alert('Internet es requerido!!\nGracias');
+	$("#names_u").html("Internet es requerido!!<br/>Gracias");
+}else{
+	$( document ).ready(function() {
+		var id_u= window.localStorage.getItem("id_u");
+		var names_u= window.localStorage.getItem("names_u");	
+		$("#names_u").html("Bienvenid@: "+names_u);
+		getRSS(id_u);
+	});
+}
 function getRSS(id_u){
 var postStr='action=get_rss&id_u='+id_u;
 $.ajax({ 
@@ -47,7 +52,7 @@ $.ajax({
 </header>
 <section class="container">
   <article class="categoria">
-    <h2 class="title_categoria">Bienvenid@: <span id="names_u"></span></h2>
+    <h2 class="title_categoria"><span id="names_u"></span></h2>
   </article>
   <section class="cont_articulos">
 
