@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ejemplo de Connection</title>
+
+    <script type="text/javascript" charset="utf-8" src="js/phonegap-1.0.0.js"></script>
+    <script type="text/javascript" charset="utf-8">
+	checkConnection();
+    // Espera a que PhoneGap se inicie
+    // 
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap esta listo, y ahora se pueden hacer llamadas a los métodos
+    //
+    function onDeviceReady() {
+        checkConnection();
+    }
+
+    function checkConnection() {
+        var networkState = navigator.network.connection.type;
+
+        var states = {};
+    states[Connection.UNKNOWN]  = 'Conexión desconocida';
+    states[Connection.ETHERNET] = 'Conexión ethernet';
+    states[Connection.WIFI]     = 'Conexión WiFi';
+    states[Connection.CELL_2G]  = 'Conexión movil 2G';
+    states[Connection.CELL_3G]  = 'Conexión movil 3G';
+    states[Connection.CELL_4G]  = 'Conexión movil 4G';
+    states[Connection.NONE]     = 'Sin conexión';
+
+        alert('Tipo de conexión: ' + states[networkState]);
+    }
+
+    </script>
+  </head>
+  <body>
+    <p>Un mensaje te notificara el tipo de conexión.</p>
+  </body>
+</html>

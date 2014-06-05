@@ -168,7 +168,7 @@ td, th {
 .icon-comentar:before {
     content: "\e605"}
 .icon-icono_articulo3:before {
-    content: "\e600"}
+    content: "\e604"}
 .icon-clock:before {
     content: "\e606"}
 .icon-play:before {
@@ -183,6 +183,8 @@ td, th {
     content: "\e603"}
 .icon-arrow-right2:before {
     content: "\e604"}
+.icon-msg-cat:before {
+    content: "\e605"}	
 body {
     font-size: 16px;
     font-family: 'Roboto' sans-serif;
@@ -510,7 +512,7 @@ header {
 }
 .toast{
 	position: fixed;
-	top:50%;
+	top:25%;
 	left:50%;
 	width: 200px;
 	margin-left: -100px;

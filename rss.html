@@ -10,34 +10,26 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/getParameters.js"></script>
+<script type="text/javascript" src="http://momentjs.com/downloads/moment-with-langs.min.js"></script>
+<script type="text/javascript" src="plugins/FeedEk/js/FeedEk.js"></script>
 <script>
 $( document ).ready(function() {
 	var id_u= window.localStorage.getItem("id_u");
 	var names_u= window.localStorage.getItem("names_u");	
 	$("#names_u").html(names_u);
-	getRSS(id_u);
+	var name_r = decodeURIComponent(GetURLParameter('name_r'));
+	var rss_r = decodeURIComponent(GetURLParameter('rss_r'));
+	$("#name_r").html(name_r);
+	loadRss(rss_r);
 });
-function getRSS(id_u){
-var postStr='action=get_rss&id_u='+id_u;
-$.ajax({ 
-	dataType: 'jsonp',
-	jsonp: 'callback', 
-	type: "POST",
-	crossDomain: true,
-	data: postStr,
-	url: "http://realrisk.co/mobile/ajax_services.php",			
-	success: function(msg){
-		if(msg){											
-			var data=JSON.stringify(msg);			
-			var obj= jQuery.parseJSON(data);
-			$.each(obj, function(index, value) {
-			  $(".cont_articulos").append('<article class="articulo"><figure class="icono_art icon-msg-cat"></figure><a href="rss.html?name_r='+ value.name_r +'&rss_r='+ value.rss_r +'" class="titulo_articulo">Noticias '+ value.name_r +'</a><p class="contenido">'+ value.description_r +'</p></article>');   
-			})
-		}else{
-			toast("No tiene canales de noticias asignados!");
-		}
-	}
-	});	
+function loadRss(url){
+  $('#divRss').FeedEk({
+	  FeedUrl: url,
+	  MaxCount: 10,
+	  ShowDesc: true,
+	  DescCharacterLimit: 100
+  });	
 }
 </script>
 </head>
@@ -46,12 +38,12 @@ $.ajax({
   <figure id="logotipo"> <img src="image/logo.png" width="125" height="30" alt="Realrisk"> </figure>
 </header>
 <section class="container">
-  <article class="categoria">
-    <h2 class="title_categoria">Bienvenid@: <span id="names_u"></span></h2>
-  </article>
-  <section class="cont_articulos">
-
-  </section>
+    <article class="categoria">
+      <h2 class="title_categoria"><span id="name_r"></span></h2>
+    </article>
+    <section class="cont_articulos">
+      <div id="divRss"></div>
+    </section>  
 </section>
 </body>
 </html>

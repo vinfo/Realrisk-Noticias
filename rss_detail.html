@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Realrisk - Lector RSS</title>
+<meta name="description" contend="Aplicacion Realrisk" />
+<meta name="keywords" contend="app, realrisk, Medellin, Colombia" />
+<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/estilos.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/getParameters.js"></script>
+<script>
+$( document ).ready(function() {
+	var name_r = decodeURIComponent(GetURLParameter('name_r'));
+	var rss_r = decodeURIComponent(GetURLParameter('rss_r'));	
+	$( document ).on( "click", "a.atras", function() {
+		window.history.back();
+	});	
+});
+</script>
+</head>
+<body>
+<header class="header">
+  <figure id="logotipo"> <img src="image/logo.png" width="125" height="30" alt="Realrisk"> </figure>
+</header>
+<section class="container">
+   <a href="#" class="atras icon-arrow-left"><span class="titulo_atras">Atrás</span></a>
+    <article class="detarticulo">
+      <div class="titulo_det_articulo">
+        <figure class="icono_tit icon-icono_articulo3"> </figure>
+        <h2 class="det_titulo"> Titulo articulo en detalle detalle </h2>
+      </div>
+      <p class="parrafo">&nbsp;</p>
+    </article>
+    <section class="historico">
+      <div class="ctitulo_historico">
+        <figure class="icono_historico icon-clock"> </figure>
+        <h2 class="tit_historico"> Histórico </h2>
+      </div>
+      <article class="p_historico">
+        <figure class="icono_enparrafo icon-arrow-right"> </figure>
+        <p class="parrafo_historico">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde</p>
+      </article>
+      <article class="p_historico">
+        <figure class="icono_enparrafo icon-arrow-right"> </figure>
+        <p class="parrafo_historico">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde</p>
+      </article>
+    </section>
+    <section class="historico">
+      <div class="ctitulo_historico">
+        <figure class="icono_comentar icon-comentar"> </figure>
+        <h2 class="tit_historico"> Comentar </h2>
+      </div>
+      <form action="" autocomplete="on">
+        <textarea class="input_textarea" name="comen" id="comen"></textarea>
+        <input type="submit" name="submit" class="button" value="Enviar Comentario" id="button" />
+      </form>
+    </section>
+</section>
+</body>
+</html>

@@ -17,16 +17,16 @@ function drawToast(message){
 		alert.style.position = "fixed";
 		alert.style.backgroundColor = "#B1BCCF";
 		alert.style.width="200px";
-		alert.style.top="50%";
+		alert.style.top="25%";
 		alert.style.left="50%";
 		alert.style.padding="10px";
 		alert.style.marginLeft="-110px";
 		alert.style.border="1px solid #666";
 		alert.style.textAlign="center";		
-	}	
-	intervalCounter = setInterval("hideToast()", 1000);
+	}
+	intervalCounter = setInterval("hideToast()", 2000);
 }
 
-function save(msg){
+function toast(msg){
 	drawToast(msg);
 }
