@@ -1,52 +1,66 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Realrisk - Lector RSS</title>
-<meta name="description" contend="Aplicacion Realrisk" />
-<meta name="keywords" contend="app, realrisk, Medellin, Colombia" />
-<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="css/estilos.css">
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/getParameters.js"></script>
-<script type="text/javascript" src="http://momentjs.com/downloads/moment-with-langs.min.js"></script>
-<script type="text/javascript" src="plugins/FeedEk/js/FeedEk.js"></script>
-<script>
-$( document ).ready(function() {
-	var id_u= window.localStorage.getItem("id_u");
-	var names_u= window.localStorage.getItem("names_u");
-	window.localStorage.setItem("name_r",GetURLParameter('name_r'));	
-	window.localStorage.setItem("rss_r",GetURLParameter('rss_r'));	
-	$("#names_u").html(names_u);
-	var name_r = decodeURIComponent(GetURLParameter('name_r'));
-	var rss_r = decodeURIComponent(GetURLParameter('rss_r'));
-	$("#name_r").html(name_r);
-	loadRss(rss_r);
-});
-function loadRss(url){
-  $('#divRss').FeedEk({
-	  FeedUrl: url,
-	  MaxCount: 10,
-	  ShowDesc: true,
-	  DescCharacterLimit: 100
-  });	
-}
-</script>
-</head>
-<body>
-<header class="header">
-  <figure id="logotipo"> <img src="image/logo.png" width="125" height="30" alt="Realrisk"> </figure>
-</header>
-<section class="container">
-<a href="list.html" class="atras icon-arrow-left"><span class="titulo_atras">Atrás</span></a>
-    <article class="categoria">
-      <h2 class="title_categoria"><span id="name_r"></span></h2>
-    </article>
-    <section class="cont_articulos">
-      <div id="divRss"></div>
-    </section>  
-</section>
-</body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google AJAX Search API Sample</title>
+    <script src="//www.google.com/jsapi?key=AIzaSyA5m1Nc8ws2BbmPRwKu5gFradvD_hgq6G0" type="text/javascript"></script>
+    <script type="text/javascript">
+    /*
+    *  How to receive results in XML.
+    */
+    
+    google.load("feeds", "1");
+    
+    // Our callback function, for when a feed is loaded.
+    function feedLoaded(result) {
+      if (!result.error) {
+        // Get and clear our content div.
+        var content = document.getElementById('content');
+        content.innerHTML = '';
+    
+        // Get all items returned.
+        var mTittle = result.xmlDocument.getElementsByTagName('title');
+		var items = result.xmlDocument.getElementsByTagName('item');
+		
+		alert(mTittle[0].firstChild.nodeValue);
+		
+        // Loop through our items
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
+    		alert(item.getElementsByTagName('content:encoded')[0].firstChild.nodeValue);
+          // Get the title from the element.  firstChild is the text node containing
+          // the title, and nodeValue returns the value of it.
+          var title = item.getElementsByTagName('title')[0].firstChild.nodeValue;
+		  var linke = item.getElementsByTagName('guid')[0].firstChild.nodeValue;
+		  var description = item.getElementsByTagName('description')[0].firstChild.nodeValue;
+		  var comments = item.getElementsByTagName('comments')[0].firstChild.nodeValue;
+		  
+          content.appendChild(document.createTextNode(title));
+          content.appendChild(document.createElement('br'));
+		  content.appendChild(document.createTextNode(linke));
+		  content.appendChild(document.createElement('br'));
+		  content.appendChild(document.createTextNode(description));
+		  content.appendChild(document.createElement('br'));
+		  content.appendChild(document.createTextNode(comments));		  
+        }
+      }
+    }
+    
+    function OnLoad() {
+      // Create a feed instance that will grab Digg's feed.
+      var feed = new google.feeds.Feed("http://realriskap.com/cafe/feed/");
+    
+      // Request the results in XML
+      feed.setResultFormat(google.feeds.Feed.XML_FORMAT);
+    
+      // Calling load sends the request off.  It requires a callback function.
+      feed.load(feedLoaded);
+    }
+    
+    google.setOnLoadCallback(OnLoad);
+    </script>
+  </head>
+  <body style="font-family: Arial;border: 0 none;">
+    <div id="content">Loading...</div>
+  </body>
 </html>

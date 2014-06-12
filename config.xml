@@ -7,11 +7,11 @@
 <preference name="phonegap-version" value="3.4.0" />
 
 <name>RealRisk</name>
-<icon src="icon.png" gap:platform="android" gap:density="ldpi"/>
-<gap:splash src="splash.jpg" gap:platform="android" gap:density="ldpi"/>
-<gap:splash src="splash.jpg" gap:platform="android" gap:density="mdpi"/>
-<gap:splash src="splash.jpg" gap:platform="android" gap:density="hdpi"/>
-<gap:splash src="splash.jpg" gap:platform="android" gap:density="xhdpi"/>
+<icon src="image/icon.png" gap:platform="android" gap:density="ldpi"/>
+<gap:splash src="image/320-480.jpg" gap:platform="android" gap:density="ldpi"/>
+<gap:splash src="image/480-320.jpg" gap:platform="android" gap:density="mdpi"/>
+<gap:splash src="image/603-966.jpg" gap:platform="android" gap:density="hdpi"/>
+<gap:splash src="image/966-603.jpg" gap:platform="android" gap:density="xhdpi"/>
 <access origin="*" />
 
 <description>

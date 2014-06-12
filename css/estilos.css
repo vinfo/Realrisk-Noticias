@@ -324,6 +324,18 @@ header {
     font-family: arial;
     font-size: 1em;
 }
+.btn_compartir {
+    background: linear-gradient(#EDEFF0, #FFFFFF) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: thin solid #8EA2B1;
+    color: #E56619;
+    display: block;
+    font-family: 'Roboto Condensed',sans-serif;
+    font-size: 1.2em;
+    margin-top: 0.8em;
+    padding: 0.2em;
+    text-align: center;
+    text-decoration: none;
+}
 .historico {
     padding: 0 .5em;
     margin: 0;

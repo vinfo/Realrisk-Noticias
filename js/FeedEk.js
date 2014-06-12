@@ -17,17 +17,17 @@
         var id = $(this).attr("id"),
             i, s = "",
             dt,dtp;
-        $("#" + id).empty().append('<img src="loader.gif" />');
+        $("#" + id).empty().append('<img src="../plugins/FeedEk/js/image/loader.gif" />');
         $.ajax({
             url: "http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=" + def.MaxCount + "&output=json&q=" + encodeURIComponent(def.FeedUrl) + "&hl=en&callback=?",
             dataType: "json",
             success: function (data) {
                 $("#" + id).empty();
-				//alert(JSON.stringify(data));
+				alert(JSON.stringify(data));
 				$("#titleRss").text(data.responseData.feed.title);
+				
 				var cont=0;
-                $.each(data.responseData.feed.entries, function (e, item) {
-					
+                $.each(data.responseData.feed.entries, function (e, item) {					
                     if (def.ShowPubDate) {
                         dt = new Date(item.publishedDate);
                         if ($.trim(def.DateFormat).length > 0) {
@@ -40,15 +40,14 @@
                         } else {
                             dtp = dt.toLocaleDateString();
                         }
-                    }					
-					
-					s += '<article class="articulo"><figure class="icono_art icon-icono_articulo3"></figure><a href="rss_detail.html?name_r='+item.title+'" class="titulo_articulo" id="'+cont+'" title="'+item.title+'">'+item.title+' ('+ dtp +')</a>';
+                    }
+					s += '<article class="articulo"><figure class="icono_art icon-icono_articulo3"></figure><a href="../plugins/FeedEk/js/rss_detail.html?name_r='+item.title+'" class="titulo_articulo" id="'+cont+'" title="'+item.title+'">'+item.title+' ('+ dtp +')</a>';
 					if (def.ShowDesc) {
 						 s += '<p class="contenido">' + item.contentSnippet + '</p>'
                     }
 					s+= '</article>';					
 					
-/*					s += '<li><div class="itemTitle"><a href="' + item.link + '" target="' + def.TitleLinkTarget + '" >' + item.title + "</a></div>";*/					
+/*					s += '<li><div class="itemTitle"><a href="../plugins/FeedEk/js/' + item.link + '" target="' + def.TitleLinkTarget + '" >' + item.title + "</a></div>";*/					
 															
                 });
                 $("#" + id).append('<ul class="feedEkList">' + s + "</ul>")
