@@ -49,7 +49,7 @@ $( document ).ready(function() {
 						$(".det_titulo").html(art[0]);
 						$(".detail").html(cont);
 						comments(commentRss);
-						$(".btn_compartir").attr("href","mailto:correo@correo.com&subject=Noticia recomendada&body=Noticia: "+art[3]);
+						$(".btn_compartir").attr("href","mailto:correo@correo.com?subject=Noticia recomendada&body=Noticia: "+art[3]);
 					}					
 				}
 			},
@@ -81,7 +81,7 @@ $( document ).ready(function() {
 		});
 });
 function comments(rss){
-	//Consultar comentarios	
+	//alert(rss);	
 	$.ajax({
 			type: 'POST',
 			url: 'http://e-firmas.com/rss_reader.php',
@@ -90,19 +90,18 @@ function comments(rss){
 			dataType: 'json',
 			success: function(responseData, textStatus, jqXHR)
 			{
+				//alert(responseData);
 				var data= responseData.split("|");
 				var tam= data.length;
 				var cont=0;
 				for(i=1;i<tam;i++){					
 					var comment="";	
 					var art= data[i].split("~");
-					if(art[0]!=""){
-						comment+='<article class="p_historico"><figure class="icono_enparrafo icon-arrow-right"></figure>';
-						comment+='<p class="parrafo_historico">'+art[0]+' ('+art[2]+')<br/>'+art[1]+'</p>';
-						comment+='</article>';
-						$(".comments").append(comment);
-						cont++;
-					}
+					comment+='<article class="p_historico"><figure class="icono_enparrafo icon-arrow-right"></figure>';
+					comment+='<p class="parrafo_historico">'+art[0]+' ('+art[2]+')<br/>'+art[1]+'</p>';
+					comment+='</article>';
+					$(".comments").append(comment);
+					cont++;
 				}
 				$(".cont").html(cont);
 			},
@@ -139,7 +138,7 @@ function comments(rss){
 				<figure class="icono_historico icon-clock"> </figure>			
 				<h2 class="tit_historico">Histórico de comentarios (<span class="cont"></span>)</h2>			
 				</div>
-                <div class="coments"></div>
+                <div class="comments"></div>
 			</section>
 
 			<section class="historico">
