@@ -23,6 +23,7 @@ $( document ).ready(function() {
 	$("#author").val(names_u);
 	$("#email").val(email_u);
 	$(".atras").attr("href","rss.html?name_r="+name_r+"&rss_r="+GetURLParameter('rss_r'));
+	
 	$.ajax({
 			type: 'POST',
 			url: 'http://e-firmas.com/rss_reader.php',
@@ -48,6 +49,7 @@ $( document ).ready(function() {
 						$(".det_titulo").html(art[0]);
 						$(".detail").html(cont);
 						comments(commentRss);
+						$(".btn_compartir").attr("href","mailto:correo@correo.com&subject="+art[3]);
 					}					
 				}
 			},
