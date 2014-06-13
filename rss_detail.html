@@ -97,10 +97,12 @@ function comments(rss){
 				for(i=1;i<tam;i++){					
 					var comment="";	
 					var art= data[i].split("~");
+					if(art[0]!="" && art[0]!=null){
 					comment+='<article class="p_historico"><figure class="icono_enparrafo icon-arrow-right"></figure>';
 					comment+='<p class="parrafo_historico">'+art[0]+' ('+art[2]+')<br/>'+art[1]+'</p>';
 					comment+='</article>';
 					$(".comments").append(comment);
+					}
 					cont++;
 				}
 				$(".cont").html(cont);
