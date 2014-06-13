@@ -37,6 +37,7 @@ if (! window.jQuery) {
 					  var obj= jQuery.parseJSON(data);
 					  window.localStorage.setItem("id_u", obj.id_u);
 					  window.localStorage.setItem("names_u", obj.names_u);
+					  window.localStorage.setItem("email_u", email);
 					  redir();
 				  }else{
 					  toast("Correo no registrado!");
@@ -50,7 +51,7 @@ if (! window.jQuery) {
     
 function redir(){				
   //localStorage.removeItem("realrisk");				 
-  if(window.localStorage.getItem("id_u")!=null){					
+  if(window.localStorage.getItem("id_u")!=null && window.localStorage.getItem("email_u")!=null){					
 	  window.location = "list.html";
   }
 }
