@@ -23,7 +23,7 @@ $( document ).ready(function() {
 	$("#name_r").html(name_r);
 	$.ajax({
 			type: 'POST',
-			url: 'http://e-firmas.com/rss_reader.php',
+			url: 'http://realrisk.co/mobile/rss_reader.php',
 			crossDomain: true,
 			data: "action=getData&rss="+rss_r+"&type=full",
 			dataType: 'json',
