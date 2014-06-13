@@ -56,7 +56,7 @@ $( document ).ready(function() {
 			error: function (responseData, textStatus, errorThrown)
 			{
 				console.warn(responseData, textStatus, errorThrown);
-				alert('CORS failed - ' + textStatus);
+				//alert('CORS failed - ' + textStatus);
 			}
 		});
 		$("#submit").click(function(e) {
@@ -70,7 +70,7 @@ $( document ).ready(function() {
 			var URL = 'http://realriskap.com/'+site+'/wp-comments-post.php';
 			$.post(URL,formData,function(data, textStatus, jqXHR)
 			{
-			 alert(data); 
+			 alert("Datos enviados exitosamente"); 
 			}).fail(function(jqXHR, textStatus, errorThrown)
 			{
 			
@@ -109,7 +109,7 @@ function comments(rss){
 			error: function (responseData, textStatus, errorThrown)
 			{
 				console.warn(responseData, textStatus, errorThrown);
-				alert('CORS failed - ' + textStatus);
+				//alert('CORS failed - ' + textStatus);
 			}
 		});
 }
