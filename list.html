@@ -11,9 +11,8 @@
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>
-if (! window.jQuery) {
-	alert('Internet es requerido!!\nGracias');
-	$("#names_u").html("Internet es requerido!!<br/>Gracias");
+if (!window.jQuery) {
+	alert('Internet es requerido!!');
 }else{
 	$( document ).ready(function() {
 		var id_u= window.localStorage.getItem("id_u");
