@@ -23,37 +23,41 @@ if (! window.jQuery) {
 		  var email=$("#email").val();
 		  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
 		  if(email_regex.test(email)){										
-		  var postStr='action=login&email='+email;
-		  $.ajax({ 
-			  dataType: 'jsonp',
-			  jsonp: 'callback', 
-			  type: "POST",
-			  crossDomain: true,
-			  data: postStr,
-			  url: "http://realrisk.co/mobile/lib/ajax_services.php",			
-			  success: function(msg){
-				  if(msg){								
-					  var data=JSON.stringify(msg);
-					  var obj= jQuery.parseJSON(data);
-					  window.localStorage.setItem("id_u", obj.id_u);
-					  window.localStorage.setItem("names_u", obj.names_u);
-					  window.localStorage.setItem("email_u", email);
-					  redir();
-				  }else{
-					  toast("Correo no registrado!");
-				  }
-			  }
-			  });				
+		  	check_status(email);			
 		  } 
 	  });						
   });
 }
     
 function redir(){				
-  //localStorage.removeItem("realrisk");				 
+  localStorage.removeItem("realrisk");				 
   if(window.localStorage.getItem("id_u")!=null && window.localStorage.getItem("email_u")!=null){					
-	  window.location = "list.html";
+	 check_status(window.localStorage.getItem("email_u"));
   }
+}
+function check_status(email){
+	var postStr='action=login&email='+email;
+	  $.ajax({ 
+		  dataType: 'jsonp',
+		  jsonp: 'callback', 
+		  type: "POST",
+		  crossDomain: true,
+		  data: postStr,
+		  url: "http://realrisk.co/mobile/lib/ajax_services.php",			
+		  success: function(msg){
+			  if(msg!=null){						
+				  //alert(msg);
+				  var data=JSON.stringify(msg);
+				  var obj= jQuery.parseJSON(data);
+				  window.localStorage.setItem("id_u", obj.id_u);
+				  window.localStorage.setItem("names_u", obj.names_u);
+				  window.localStorage.setItem("email_u", email);
+				  window.location = "list.html";				  
+			  }else{
+				  toast("Correo no registrado!");
+			  }
+		  }
+	});	
 }
 </script>
 </head>
