@@ -9,24 +9,44 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/Toast.js"></script>
 <script>
-if (! window.jQuery) {
+// PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+function onDeviceReady() {
+navigator.network.isReachable("google.com", reachableCallback, {});
+}
+// Check network status
+function reachableCallback(reachability) {
+  // There is no consistency on the format of reachability
+  var networkState = reachability.code || reachability;
+  var states = {};
+  states[NetworkStatus.NOT_REACHABLE]                      = 'No network connection';
+  states[NetworkStatus.REACHABLE_VIA_CARRIER_DATA_NETWORK] = 'Carrier data connection';
+  states[NetworkStatus.REACHABLE_VIA_WIFI_NETWORK]         = 'WiFi connection';
+  if (networkState != 0) online = true;
+}
+var online = navigator.onLine || false;
+$(document).ready(function() { 
+  $(document).bind('deviceready', function(){
+    onDeviceReady();	
+  })
+  $("#submit").click(function(e) {
+	  e.preventDefault();
+	  var email=$("#email").val();
+	  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+	  if(email_regex.test(email)){										
+		check_status(email);			
+	  } 
+  });
+})
+
+if(online) {
+  redir();
+  alert(1);
+} else {
 	alert('Internet es requerido!!');
 	localStorage.removeItem("realrisk");
-}else {
-  $( document ).ready(function() {		
-	  redir();				
-	  $("#submit").click(function(e) {
-		  e.preventDefault();
-		  var email=$("#email").val();
-		  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-		  if(email_regex.test(email)){										
-		  	check_status(email);			
-		  } 
-	  });						
-  });
 }
     
 function redir(){				
