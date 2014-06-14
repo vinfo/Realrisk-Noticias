@@ -8,10 +8,10 @@
 
 <name>RealRisk</name>
 <icon src="image/icon.png" gap:platform="android" gap:density="ldpi"/>
-<gap:splash src="image/320-480.jpg" gap:platform="android" gap:density="ldpi"/>
-<gap:splash src="image/480-320.jpg" gap:platform="android" gap:density="mdpi"/>
-<gap:splash src="image/603-966.jpg" gap:platform="android" gap:density="hdpi"/>
-<gap:splash src="image/966-603.jpg" gap:platform="android" gap:density="xhdpi"/>
+<gap:splash src="image/320-480.png" gap:platform="android" gap:density="ldpi"/>
+<gap:splash src="image/480-320.png" gap:platform="android" gap:density="mdpi"/>
+<gap:splash src="image/603-966.png" gap:platform="android" gap:density="hdpi"/>
+<gap:splash src="image/966-603.png" gap:platform="android" gap:density="xhdpi"/>
 <access origin="*" />
 
 <description>
