@@ -35,7 +35,7 @@ $.ajax({
 			var data=JSON.stringify(msg);			
 			var obj= jQuery.parseJSON(data);
 			$.each(obj, function(index, value) {
-			  $(".cont_articulos").append('<article class="articulo"><figure class="icono_art icon-msg-cat"></figure><a href="rss.html?name_r='+ value.name_r +'&rss_r='+ value.rss_r +'" class="titulo_articulo">Noticias '+ value.name_r +'</a><p class="contenido">'+ value.description_r +'</p></article>');   
+			  $(".cont_articulos").append('<article class="articulo"><figure class="icono_art icon-msg-cat"></figure><a href="rss.html?name_r='+ value.name_r +'&rss_r='+ value.rss_r +'" class="titulo_articulo">'+ value.name_r +'</a><p class="contenido">'+ value.description_r +'</p></article>');   
 			})
 		}else{
 			toast("No tiene canales de noticias asignados!");

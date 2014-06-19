@@ -9,25 +9,22 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/estilos.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/Toast.js"></script>
 <script>
-if (! window.jQuery) {
-	alert('Internet es requerido!!');
+$( document ).ready(function() {
+	redir();
+//alert('Internet es requerido!!');
 	localStorage.removeItem("realrisk");
-}else {
-  $( document ).ready(function() {		
-	  redir();				
-	  $("#submit").click(function(e) {
-		  e.preventDefault();
-		  var email=$("#email").val();
-		  email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-		  if(email_regex.test(email)){										
-		  	check_status(email);			
-		  } 
-	  });						
-  });
-}
+	$("#submit").click(function(e) {
+		e.preventDefault();
+		var email=$("#email").val();
+		email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+		if(email_regex.test(email)){										
+		  check_status(email);			
+		} 
+	});		
+});
     
 function redir(){				
   localStorage.removeItem("realrisk");				 
