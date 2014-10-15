@@ -4,7 +4,7 @@
     id        = "com.phonegap.example"
     version   = "1.0.0">
 	
-<preference name="phonegap-version" value="3.4.0" />
+<preference name="phonegap-version" value="3.6.3" />
 
 <name>RealRisk</name>
 <icon src="image/icon.png" gap:platform="android" gap:density="ldpi"/>
