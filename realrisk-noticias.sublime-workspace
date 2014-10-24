@@ -43,30 +43,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/D/Movilidad/Node/jquery-web-socket/index.html",
-			"settings":
-			{
-				"buffer_size": 706,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/D/Movilidad/Node/nodejs-push-notification-server-master/server.js",
-			"settings":
-			{
-				"buffer_size": 1203,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/D/Movilidad/Node/nodejs-push-notification-server-master/client.html",
-			"settings":
-			{
-				"buffer_size": 867,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -129,7 +105,13 @@
 	],
 	"file_history":
 	[
+		"/D/wamp/www/Realrisk-Noticias/config.xml",
+		"/D/wamp/www/certificarautomotores/js/tools.js",
+		"/D/wamp/www/dyd/application/js/cotizaciones.js",
+		"/D/wamp/www/dyd/js/admin/tools.js",
 		"/D/Movilidad/Node/nodejs-push-notification-server-master/client.html",
+		"/D/Movilidad/Node/jquery-web-socket/index.html",
+		"/D/Movilidad/Node/nodejs-push-notification-server-master/server.js",
 		"/D/Movilidad/Node/tapit-master/server.js",
 		"/D/Movilidad/Nodejs-Sample-master/Nodejs-Sample-master/routes/index.js",
 		"/D/Movilidad/Nodejs-Sample-master/Nodejs-Sample-master/app.js",
@@ -141,7 +123,6 @@
 		"/D/Movilidad/BuffetExpress/pantalla3.html",
 		"/C/Dropbox/KeePass-2.19/KeePass.config.xml",
 		"/D/Movilidad/BuffetExpress/index.html",
-		"/D/wamp/www/Realrisk-Noticias/config.xml",
 		"/D/wamp/www/Realrisk-Noticias/index.html",
 		"/D/wamp/www/realrisk-movil/config.xml",
 		"/D/Movilidad/Mapas/index.html",
@@ -201,7 +182,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -216,6 +197,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"568h",
 			"login(",
 			"sendfile",
 			"starter",
@@ -242,103 +224,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/D/Movilidad/Node/jquery-web-socket/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 706,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								387,
-								387
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/D/Movilidad/Node/nodejs-push-notification-server-master/server.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1203,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 266.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/D/Movilidad/Node/nodejs-push-notification-server-master/client.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 867,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
